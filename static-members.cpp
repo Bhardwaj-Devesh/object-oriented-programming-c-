@@ -54,3 +54,5 @@ int main(){
     2. static functions can only access static members and properties. 
     3. we have to use :: -> scope resolution operater while calling the static functions
 */
+
+/* IMPORTANT : Static functions doesn't have this keyword because they cann't access any object*/

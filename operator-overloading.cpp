@@ -57,12 +57,22 @@ class Fraction{
         }
 
         // It is not a const function because we are changing the value of its parameter
+        // pre-increment
         Fraction& operator++(){
             this->numerator = this->numerator + this->denominator;
             simplify();
             return *this;
         }
         /* *this means we are dereferencing the pointer => which implies "give me the actual object that this pointer is pointing to"*/
+
+        // post-increament
+        /*NOTE: There is no nesting in post Increment operation*/
+        void operator++(int){
+            Fraction fnew(this->numerator,this->denominator);
+            this->numerator = this->numerator + this->denominator;
+            simplify();
+            fnew.simplify();
+        }
 };
 
 int main(){
@@ -71,7 +81,7 @@ int main(){
 
     /* OPERATOR OVERLOADING */
     // f3 = f1 + f2;
-
+    /*
     Fraction f3 = f1 + f2; // => f1.operator+(f2)
     f3.print();
     Fraction f4 = f1*f2; // -> f1.operator*(f2)
@@ -81,4 +91,9 @@ int main(){
     f1.print();
     Fraction f5 = ++(++f1);
     f5.print();
+    */
+   // post-increment operator overloading
+    f1.print();
+   f1++;
+   f1.print();
 }
